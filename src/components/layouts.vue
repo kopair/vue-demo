@@ -2,6 +2,7 @@
     <section class="container">
         <!-- 左边的容器 -->
         <section class="menu">
+            <menus></menus>
         </section>
         <!-- 右边的容器 -->
         <section class="menu-content">
