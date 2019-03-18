@@ -1,5 +1,6 @@
 <template>
     <div class="page lists-show">
+        <!-- 容器上半部分 -->
         <nav>
             <div class="nav-group">
                 <a class="nav-item">
@@ -27,15 +28,51 @@
                 <span class="icon-add"></span>
             </div>
         </nav>
+        <!-- 容器下半部分 -->
+        <div class="content-scrollable list-items">
+            <div v-for="item in items" :key="item.id">
+                <item :item="item"></item>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
+import item from './item';
 export default {
-
+    data(){
+        return {
+            // 详细内容
+            todo:{
+                title:'星期一',
+                count:12,
+                locked:false
+            },
+            // 代办单项列表
+            items:[
+                {checked:flase,text:'新的一天',isDelete:false},
+                {checked:flase,text:'新的一天',isDelete:false},
+                {checked:flase,text:'新的一天',isDelete:false}
+            ],
+            text:''
+        }
+    },
+    methods: {
+        onAdd(){
+            thi.items.push({
+                checked:false,text:this.text,isDelete:false
+            });
+            this.text='';
+        }
+    },
+    components:{
+        item
+    }
 }
 </script>
 
-<style>
-
+<style lang = "less">
+@import '../common/style/nav.less';
+@import '../common/style/form.less';
+@import '../common/style/todo.less';
 </style>

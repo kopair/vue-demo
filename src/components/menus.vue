@@ -25,7 +25,7 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less">
+@import '../common/style/menu.less';
 </style>
 
