@@ -50,16 +50,16 @@ export default {
             },
             // 代办单项列表
             items:[
-                {checked:flase,text:'新的一天',isDelete:false},
-                {checked:flase,text:'新的一天',isDelete:false},
-                {checked:flase,text:'新的一天',isDelete:false}
+                {checked:false,text:'新的一天',isDelete:false},
+                {checked:false,text:'新的一天',isDelete:false},
+                {checked:false,text:'新的一天',isDelete:false}
             ],
             text:''
         }
     },
     methods: {
         onAdd(){
-            thi.items.push({
+            this.items.push({
                 checked:false,text:this.text,isDelete:false
             });
             this.text='';

@@ -1,10 +1,10 @@
 <template>
     <div class="list-todos">
-        <a class="list-todo activeListClass list" v-for="item in items" :key="item.id">
-            <span class="icon-lock" v-if="item.locked"></span><!--锁定图标-->
-            <span class="count-list" v-if="item.count">
-                {{item.count}}</span><!--数字 -->
-                {{item.title}}
+        <a class="list-todo list activeListClass" v-for="item in items" :key="item.id"> <!-- v-for 列表渲染-->
+            <span class="icon-lock" v-if="item.locked"></span> <!-- v-if 条件渲染-->
+            <span class="count-list" v-if="item.count > 
+            0">{{item.count}}</span>
+            {{item.title}}   <!-- 数据绑定，看模板语法-->
         </a>
         <a class="link-list-new">
             <span class="icon-plus"></span>
