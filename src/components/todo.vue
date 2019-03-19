@@ -42,7 +42,6 @@
     <div class="content-scrollable list-items">
         <item></item>
     </div>
-    </div>
   </div>
 </template>
 <script>  
@@ -57,11 +56,11 @@ export default {
       },
       items: [  //代办单项列表
       ],
-      text: '' ,
-      components:{
-        item
-      }
+      text: '' 
     }
+  },
+  components:{
+        item
   }
 }
 </script>
