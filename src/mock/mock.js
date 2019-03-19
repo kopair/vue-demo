@@ -9,21 +9,22 @@ export default{
     start(){
         let mock=new MockAdapter(axios);
 
-        mock.onGet('/todo/list').reply(config=>{
-            return {
-                id:tode.id,
-                title:tode.title,
-                count:tode.record.filter((data)=>{
-                    if(data.checked === false) return true;
-                    return false;
-                }).length,
-                locked:tode.locked,
-                isDelete:tode.isDelete
-            };
-        }).filter(tode=>{
-            if(tode.isDelete === true) return false;
-            return true;
-        });
+        mock.onGet('/todo/list').reply(config => { //  config 指 前台传过来的值
+            let mockTodo = Todos.map(tode => { // 重组 Todos数组，变成我们想要的数据
+              return {
+                id: tode.id, 
+                title: tode.title,
+                count: tode.record.filter((data) => {
+                  if (data.checked === false) return true;
+                  return false;
+                }).length, // 过滤到record里面 ‘checked’ 为true的数据，因为它们已经被完成了
+                locked: tode.locked,
+                isDelete: tode.isDelete
+              };
+            }).filter(tode => {
+              if (tode.isDelete === true) return false; // 过滤掉 ‘isDelete’为true，因为已经被删除了。
+              return true;
+            });
         return new Promise((resolve,reject) =>{
             setTimeout(()=>{
                 resolve([200,{
@@ -31,6 +32,7 @@ export default{
                 }]);
             },200);
         });
+    });
 
         mock.onPost('/todo/addTodo').reply(config=>{
             Todos.push({

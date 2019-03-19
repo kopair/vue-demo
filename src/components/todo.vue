@@ -50,9 +50,6 @@ export default {
             },
             // 代办单项列表
             items:[
-                {checked:false,text:'新的一天',isDelete:false},
-                {checked:false,text:'新的一天',isDelete:false},
-                {checked:false,text:'新的一天',isDelete:false}
             ],
             text:''
         }

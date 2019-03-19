@@ -13,15 +13,41 @@
 </template>
 
 <script>
+import {getTodoList,addTodo} from '../api/api.js';
 export default {
     data(){
         return {
-            items:[{title:'星期一',count:1,locked:true},
-            {title:'星期二',count:2,locked:true},
-            {title:'星期三',count:3,locked:false}]
+            items:[],
+            todoId:''
+        };
+    },
+    created(){
+        getTodoList({}).then(res=>{
+            const TODOS =res.data.todos;
+            this.items=TODOS;
+            this.todoId=TODOS[0].id;
+        });
+    },
+    methods:{
+        goList(id){
+            this.todoId=id;
+        },
+        addTodoList(){
+            addTodo({}).then(res=>{
+                getTodoLits({}).then(res=>{
+                    const TODOS=res.data.todos;
+                    this.todoId=TODOS[TODOS.length - 1].id;
+                    this.items = TODOS;
+                });
+            });
+        }
+    },
+    watch:{
+        'todoId'(id){
+            this.$router.push({name:'todo',params:{id:id}});
         }
     }
-}
+};
 </script>
 
 <style lang="less">
