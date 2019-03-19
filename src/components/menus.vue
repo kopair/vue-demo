@@ -34,7 +34,7 @@ export default {
         },
         addTodoList(){
             addTodo({}).then(res=>{
-                getTodoLits({}).then(res=>{
+                getTodoList({}).then(res=>{
                     const TODOS=res.data.todos;
                     this.todoId=TODOS[TODOS.length - 1].id;
                     this.items = TODOS;
