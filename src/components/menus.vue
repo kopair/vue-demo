@@ -1,12 +1,11 @@
 <template>
     <div class="list-todos">
-        <a class="list-todo list activeListClass" v-for="item in items" :key="item.id"> <!-- v-for 列表渲染-->
+        <a @click="goList(item.id)" :class="{'active':item.id ===todoId}" class="list-todo list activeListClass" v-for="item in items" :key="item.id"> <!-- v-for 列表渲染-->
             <span class="icon-lock" v-if="item.locked"></span> <!-- v-if 条件渲染-->
-            <span class="count-list" v-if="item.count > 
-            0">{{item.count}}</span>
+            <span class="count-list" v-if="item.count > 0">{{item.count}}</span>
             {{item.title}}   <!-- 数据绑定，看模板语法-->
         </a>
-        <a class="link-list-new">
+        <a class="link-list-new" @click="addTodoList">
             <span class="icon-plus"></span>
             新增
         </a>
