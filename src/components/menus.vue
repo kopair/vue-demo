@@ -1,15 +1,17 @@
 <template>
     <div class="list-todos">
-        <a @click="goList(item.id)" :class="{'active':item.id ===todoId}" class="list-todo list activeListClass" v-for="item in items" :key="item.id"> <!-- v-for 列表渲染-->
-            <span class="icon-lock" v-if="item.locked"></span> <!-- v-if 条件渲染-->
+  <!-- 绑定class，当items循环中的id等于我们设置的选中todoId时候,就会加上active这个calss,这样样式就会发生变化。-->
+        <a @click="goList(item.id)" class="list-todo list activeListClass" :class="{'active': item.id === todoId}" v-for="item in items" :key="item.id">
+            <span class="icon-lock" v-if="item.locked"></span>
             <span class="count-list" v-if="item.count > 0">{{item.count}}</span>
-            {{item.title}}   <!-- 数据绑定，看模板语法-->
+            {{item.title}}
         </a>
-        <a class="link-list-new" @click="addTodoList">
-            <span class="icon-plus"></span>
+        <a class=" link-list-new" @click="addTodoList">
+            <span class="icon-plus">
+            </span>
             新增
         </a>
-    </div>
+  </div>
 </template>
 
 <script>

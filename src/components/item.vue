@@ -13,7 +13,17 @@
 
 <script>
 export default {
-    props:['item']
+    props:{
+        item:{
+            type:Object,
+            default:() =>{
+                return {
+                    checked:false,
+                    text:'你好，世界'
+                }
+            }
+        }
+    }
 };
 </script>
 

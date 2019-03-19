@@ -31,8 +31,8 @@ export default{
                     todos:mockTodo
                 }]);
             },200);
+            });
         });
-    });
 
         mock.onPost('/todo/addTodo').reply(config=>{
             Todos.push({
@@ -49,5 +49,27 @@ export default{
             });
         });
         
+        mock.onPost('/todo/addRecord').reply(config=>{
+            let{
+                id,
+                text
+            }=JSON.parse(config.data);
+
+            Todos.some((t,index)=>{
+                if(t.id===id){
+                    t.record.push({
+                        text:text,
+                        isDelete:false,
+                        checked:false
+                    });
+                    return true;
+                }
+            });
+            return new Promise((resolve,reject)=>{
+                setTimeout(()=>{
+                    resolve([200]);
+                },200);
+            });
+        });
     }
 };

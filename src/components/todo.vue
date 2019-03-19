@@ -40,13 +40,13 @@
     </nav>
     <!-- 列表主体模块 -->
     <div class="content-scrollable list-items">
-        <div v-for="(item,index) in items" :key="item.id">
-            <item :item="item" :index="index" :id="todo.id" :init="init" :locked="todo.locked"></item>
-        </div>
+        <item></item>
+    </div>
     </div>
   </div>
 </template>
 <script>  
+import item from './item'
 export default {
   data() {
     return {
@@ -57,7 +57,10 @@ export default {
       },
       items: [  //代办单项列表
       ],
-      text: '' //用户输入单项项绑定的输入
+      text: '' ,
+      components:{
+        item
+      }
     }
   }
 }
