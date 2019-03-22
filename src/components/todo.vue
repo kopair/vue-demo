@@ -29,12 +29,15 @@
             </div>
         </nav>
         <div class="content-scrollable list-items">
-
+            <div v-for="item in items" :key="item.id">
+                <item :item="item"></item>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+import item from './item';
 export default {
     data(){
         return {
@@ -53,11 +56,14 @@ export default {
     },
     methods:{
         onAdd(){
-            this.item.push({
+            this.items.push({
                 checked:false,text:this.text,isDelete:false
             });
             this.text='';
         }
+    },
+    components:{
+        item
     }
 
 }
