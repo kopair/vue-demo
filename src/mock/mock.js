@@ -6,7 +6,7 @@ import{
 import MockAdapter from 'axios-mock-adapter';
 import { resolve } from 'url';
 export default{
-    star(){
+    start(){
         let mock = new MockAdapter(axios);
         mock.onGet('./todo/list').reply(config => {
             let mockTodo = Todos.map(tode =>{
