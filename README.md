@@ -10,3 +10,9 @@
 # npm install --save axios
  自定义命令要放在main.js的vue实例前面
 ```
+## loadmore
+```
+ vue-cli+reqwest写得一个分页，reqwest可以解决跨域问题
+ # npm install --save reqwest
+ 
+```
